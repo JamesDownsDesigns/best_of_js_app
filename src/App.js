@@ -10,6 +10,7 @@ import GithubFetch from './components/FetchAPI';
 // 1. Get data from Github via the Github API
 // 2. Filter that data via the URL
 // 3. Pass the data to child.js
+import { Animated } from 'react-animated-css';
 
 const App = () => (
   <div>
