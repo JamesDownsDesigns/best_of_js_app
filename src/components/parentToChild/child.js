@@ -8,7 +8,7 @@ const child = props => (
     {props.json.slice(0, 3).map(jsonItem => (
       <div className="cardFrame">
         <header>
-          <img src={jsonItem.owner.avatar_url} width={120}  />
+          <img src={jsonItem.owner.avatar_url} width={120} />
           <h1>
             <a href={jsonItem.owner.html_url}>{jsonItem.name}</a>
           </h1>

@@ -1,0 +1,20 @@
+This is how FetchAPI.js and child.js work.
+
+FetchAPI has a class titled GithubFetch. This does two things:
+1. Get data from Github via the Github API 
+2. Filter the search results via the URL 
+
+Fetch API then passes the data as an object to child.js
+
+child.js maps over the object and displays the relevant info. 
+
+FOR WHOEVER IS MAKING SEARCH/FILTER:
+You can either code the filter/search bar directly into FetchAPI.js, 
+or make a component that passes the filter to FetchAPI.js.
+I think the easiest way to do it would be to put the filter directly
+into FetchAPI.js, which can then access the filter directly, use it with the URL, 
+and pass data to child.js.
+
+FOR WHOEVER NEEDS TO DISPLAY GITHUB INFO (name, number of stars, etc.):
+You can either code that directly into child.js, 
+or make child.js pass the info you need into your own component
