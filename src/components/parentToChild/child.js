@@ -21,4 +21,6 @@ const child = props => (
   </div>
 );
 
+console.log('Hello');
+
 export default child;
