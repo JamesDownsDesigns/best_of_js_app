@@ -3,7 +3,8 @@ import { Animated } from 'react-animated-css';
 import Hello from './components/Hello';
 import DetectChrome from './components/DetectChrome';
 import './styles/main.scss';
-// import GithubFetch from './components/FetchAPI';
+import Search from './components/search';
+import GithubFetch from './components/FetchAPI';
 
 // GithubFetch is from FetchAPI, a child of App.js
 // FetchAPI is a parent of child.js
@@ -12,14 +13,18 @@ import './styles/main.scss';
 // 2. Filter that data via the URL
 // 3. Pass the data to child.js
 
-const App = () => (
-  <div>
+const App = () => {
+  const [searchTerm, setSearchTerm] = React.useState('');
+  // const [filter, setFilter]
+
+  return < div >
     <div>
       <DetectChrome>
-        <Hello greeting="Hello" isFullScreen />
+        <Hello greeting='Hello' isFullScreen />
       </DetectChrome>
+      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
     </div>
-  </div>
-);
+  </div >
+};
 
 export default App;
