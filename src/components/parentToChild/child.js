@@ -13,7 +13,7 @@ const child = props => (
             <li>Tags: {jsonItem.tags_url}</li>
             <li>Link to Repository: {jsonItem.html_url}</li>
             <li>Last Updated At: {jsonItem.updated_at}</li>
-            <li>License: {jsonItem.license.name}</li>
+            <li>License: {jsonItem.license ? jsonItem.license.name : 'Does not exist'}</li>
             <li>Stars: {jsonItem.stargazers_count}</li>
             <li>Image: Have not figured it out yet lol :(</li>
           </ul>

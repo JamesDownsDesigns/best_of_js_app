@@ -8,8 +8,7 @@ import Child from './parentToChild/child';
 // 2. Filter that data via the URL
 // 3. Pass the data to child.js
 
-const searchFilter = 'f';
-const url = `https://api.github.com/search/repositories?q=javascript+-${searchFilter}&sort=stars`;
+let url = `https://api.github.com/search/repositories?q=javascript&sort=stars`;
 
 class GithubFetch extends React.Component {
   constructor(props) {
@@ -17,7 +16,9 @@ class GithubFetch extends React.Component {
     this.state = {
       githubSpec: undefined,
       hasGitHubData: false,
+      urlSearchFilter: '',
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -31,12 +32,42 @@ class GithubFetch extends React.Component {
       .catch(console.error);
   }
 
+  componentWillUnmount() {
+    console.log('Component unmounted');
+  }
+
+  handleChange(event) {
+    let searchFilter = event.target.value;
+    this.setState({ urlSearchFilter: searchFilter });
+    /*if (searchFilter) {
+      fetch(`https://api.github.com/search/repositories?q=javascript+-${searchFilter}&sort=stars`)
+        .then(res => res.json())
+        .then(githubSpec => {
+          this.setState({
+            githubSpec,
+          });
+        })
+        .catch(console.error);
+    } else {
+      fetch('https://api.github.com/search/repositories?q=javascript&sort=stars')
+        .then(res => res.json())
+        .then(githubSpec => {
+          this.setState({
+            githubSpec,
+          });
+        })
+        .catch(console.error);
+    }*/
+  }
+
   render() {
     if (this.state.githubSpec) {
-      const { githubSpec } = this.state;
+      const { githubSpec, urlSearchFilter } = this.state;
       return (
         <div>
           <div>
+            <label>Search for Github Repos: </label>
+            <input type="text" value={urlSearchFilter} onChange={this.handleChange}></input>
             <Child json={githubSpec.items} />
           </div>
         </div>
