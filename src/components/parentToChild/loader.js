@@ -1,9 +1,7 @@
 import React from 'react';
 
 function loader() {
-    return (
-        <div className="loader"></div>
-    )
+  return <div className="loader" />;
 }
 
 export default loader;
