@@ -1,4 +1,5 @@
 import React from 'react';
+import { Animated } from 'react-animated-css';
 import Hello from './components/Hello';
 import DetectChrome from './components/DetectChrome';
 import './styles/main.scss';
@@ -10,7 +11,6 @@ import './styles/main.scss';
 // 1. Get data from Github via the Github API
 // 2. Filter that data via the URL
 // 3. Pass the data to child.js
-import { Animated } from 'react-animated-css';
 
 const App = () => (
   <div>
