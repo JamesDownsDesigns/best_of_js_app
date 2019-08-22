@@ -6,7 +6,9 @@ const searchStyles = {
 };
 
 const Search = props => {
-  const { searchTerm, setSearchTerm, setFilter, filter, filterOptions } = props;
+  const {
+    searchTerm, setSearchTerm, setFilter, filter, filterOptions
+  } = props;
   return (
     <div style={searchStyles}>
       <input
@@ -16,11 +18,7 @@ const Search = props => {
         onChange={event => setSearchTerm(event.target.value)}
         placeholder="Search or jump to..."
       />
-      <select
-        id="filter"
-        value={filter}
-        onChange={event => setFilter(event.target.value)}
-      >
+      <select id="filter" value={filter} onChange={event => setFilter(event.target.value)}>
         {filterOptions.map(option => (
           <option value={option}>{option}</option>
         ))}
@@ -34,8 +32,8 @@ Search.propTypes = {
   setSearchTerm: PropTypes.func.isRequired,
   setFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
-  filterOptions: PropTypes.array.isRequired
-}
+  filterOptions: PropTypes.array.isRequired,
+};
 
 Search.defaultProps = {
   searchTerm: '',
@@ -43,32 +41,11 @@ Search.defaultProps = {
   filter: '',
   setFilter: console.log,
   filterOptions: []
-}
+};
 
-// const App = () => {
-//   const [searchTerm, setSearchTerm] = React.useState('');
-//   const [filter, setFilter] = React.useState('');
-//   const [filterOptions, setFilterOptions] = React.useState([
-//     'Alphabetical',
-//     'Most Starred',
-//     'Most Forked',
-//   ]);
-
-//   return (
-//     <div>
-//         {searchTerm}
-//         {filter}
-//       <Search
-//         searchTerm={searchTerm}
-//         setSearchTerm={setSearchTerm}
-//         filter={filter}
-//         setFilter={setFilter}
-//         filterOptions={filterOptions}
-//         setFilterOptions={setFilterOptions}
-//      />
-//       </div>
-// );
-// );
-// };;
 
 export default Search;
+
+const filter = [{ value: 'a-z', display: 'Alphabetically' }];
+// <option value={option.value}>{option.display}</option>
+
